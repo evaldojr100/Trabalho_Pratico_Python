@@ -1,22 +1,21 @@
+import csv
 
-arquivo= open("dados.csv","w")
-for i in range(2):
-    texto =input("Digite seu nome:")
-    telefone = input("Digite o telefone de %s:"%(texto))
-    arquivo.writelines((texto,"\t",telefone,"\n"))
-arquivo.close()
-arquivo= open("dados.csv","r")
-for linha in arquivo.readlines():
-    print (linha)
-arquivo.close()
+def inserir():
+    arquivo = open("dados.csv", "w")
+    texto = input("Digite seu nome:")
+    telefone = input("Digite o telefone de %s:" % (texto))
+    arquivo.writelines((texto, "\t", telefone, "\n"))
+    arquivo.close()
 
-arquivo= open("dados.csv","w")
-arquivo.writelines(("Luiz\t33212589\n"))
-arquivo.close()
+def procurar():
+    arquivo = open("dados.csv", "r")
+    lista = list(csv.reader(arquivo, delimiter=','))
+    arquivo.close()
+    return lista
 
-arquivo= open("dados.csv","r")
-for linha in arquivo.readlines():
-    print (linha)
-arquivo.close()
+
+print(lista)
+
+
 
 
