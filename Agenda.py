@@ -44,9 +44,16 @@ def alterar():
     lista[indice]=dado
     gravar(lista)
 
+def remover():
+    lista = ler_tabela()
+    del lista[consultar()]
+    gravar(lista)
 
 
-'''opcao=0
+
+
+
+opcao=0
 while opcao==0:
     print("Digite 1 para Inserir Dados")
     print("Digite 2 para Pesquisar um cadastro")
@@ -56,8 +63,17 @@ while opcao==0:
     
     if opcao==1:
         entrada_dados()
-        opcao=0'''
-
+        opcao=0
+    elif opcao==2:
+        lista=ler_tabela()
+        dado=lista[consultar()]
+        print("\n---Resultado---\nNome:%s\nTelefone:%s\n"%(dado[0],dado[1]))
+    elif opcao==3:
+        alterar()
+        opcao=0
+    elif(opcao==4):
+        remover()
+        opcao=0
 
 
 
