@@ -22,26 +22,26 @@ def consultar():
     lista = ler_tabela()
     texto = input("Digite o nome a pesquisar:")
     for i in lista:
-        if texto in i[1]:
-            return i
+        if texto in i[0]:
+            return lista.index(i)
 
 def alterar():
     lista=ler_tabela()
-    dado=consultar()
-    print("\nNome:%s, Telefone:%s\n"%(dado[1],dado[2]))
+    indice=consultar()
+    dado=lista[indice]
+    print("\nNome:%s, Telefone:%s\n"%(dado[0],dado[1]))
     print("Se deseja alterar o nome digite 1")
     print("Se deseja alterar o telefone digite 2")
     print("Se deseja alterar o nome e telefone digite 3")
     aux=int(input("Sua escolha:"))
     if aux==1:
-        dado[1]=input("Digite o novo Nome:")
+        dado[0]=input("Digite o novo Nome:")
     elif aux==2:
-        dado[2]=input("Digite o novo Telefone:")
+        dado[1]=input("Digite o novo Telefone:")
     elif aux==3:
-        dado[1] = input("Digite o novo Nome:")
-        dado[2] = input("Digite o novo Telefone:")
-    lista[0]=dado
-
+        dado[0] = input("Digite o novo Nome:")
+        dado[1] = input("Digite o novo Telefone:")
+    lista[indice]=dado
     gravar(lista)
 
 
@@ -59,7 +59,7 @@ while opcao==0:
         opcao=0'''
 
 
-alterar()
+
 
 
 
