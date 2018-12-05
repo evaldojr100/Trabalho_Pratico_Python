@@ -18,12 +18,20 @@ def ler_tabela():
         dados = list((csv.reader(arquivo, delimiter=',')))
         arquivo.close()
         return dados
+
 def consultar():
-    lista = ler_tabela()
-    texto = input("Digite o nome a pesquisar:")
-    for i in lista:
-        if texto in i[0]:
-            return lista.index(i)
+    while True:
+        bool =False
+        lista = ler_tabela()
+        texto = input("Digite o nome a pesquisar:")
+        for i in lista:
+            if texto in i[0]:
+                return lista.index(i)
+                bool=True
+                break
+        if bool == False:
+            print("Nome Não encontrado Tente Novamente!!")
+
 
 def alterar():
     lista=ler_tabela()
@@ -49,16 +57,13 @@ def remover():
     del lista[consultar()]
     gravar(lista)
 
-
-
-
-
 opcao=0
 while opcao==0:
     print("Digite 1 para Inserir Dados")
     print("Digite 2 para Pesquisar um cadastro")
     print("Digite 3 para Alterar Um cadastro")
     print("Digite 4 para Excluir um Cadastro")
+    print("Digite 5 para Imprimir a Tabela")
     opcao = int(input("Sua Escolha:"))
     
     if opcao==1:
@@ -73,6 +78,11 @@ while opcao==0:
         opcao=0
     elif(opcao==4):
         remover()
+        opcao=0
+    elif(opcao==5):
+        lista=ler_tabela()
+        for i in lista:
+            print("Nome:%s\nTelefone:%s\n" % (i[0], i[1]))
         opcao=0
 
 
