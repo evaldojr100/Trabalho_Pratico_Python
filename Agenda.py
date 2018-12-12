@@ -16,6 +16,7 @@ def gravar(lista):
     with open("dados.csv","w") as arquivo:
         writer = csv.writer(arquivo, delimiter=',')
         writer.writerows(lista)
+        arquivo.close()
 def ler_tabela():
     with open("dados.csv", "r") as arquivo:
         dados = list((csv.reader(arquivo, delimiter=',')))
